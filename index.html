@@ -1,6 +1,6 @@
 
 
-<html ng-app="custom-webapp-ui" lang="fa" style="background-color: Aqua">
+<html ng-app="custom-webapp-ui" lang="fa" style="background-color: Red">
   <head>
     <meta charset="UTF-8">
     <!-- Load the Telegram Library -->
@@ -12,16 +12,16 @@
       angular.module("custom-webapp-ui", []).controller('CustomUIController', function CustomUIController($scope) {
         //init our slider values that we will display
         $scope.foods = [
-                { name: " کوبیده : یک سیخ + نان داغ ، بدون مخلفات ۸۵", value: 0 },
-                { name: "    کوبیده : دو سیخ + نان داغ + مخلفات ۱۹۰", value: 0 },
-                { name: " آداناکباب : یک سیخ کوبیده + نان داغ + مخلفات ۱۱۵  ", value: 0},
-                { name: "       گوشت : ۱۰۰ گرم فیله/راسته گوساله+ نان داغ+ مخلفات ۸۹      ", value: 0} ,
-                { name: "             گوشت و دنبه : ۱۰۰ گرم فیله/راسته گوساله+ دنبه + نان داغ+ مخلفات ۱۰۷"   , value :0 }  ,
-                { name: "            جگر : ۱۰۰ گرم جگر + نان داغ  ۸۰" , value :0 } ,
-                { name: "         دل : ۱۰۰ گرم دل + نان داغ  ۸۰   " , value : 0} ,
-                { name: "        رولت گوشت : ۲۰۰  گرم میکس فیله/راسته گوساله + دنبه + نان داغ + مخلفات  ۱۷۹    " ,value : 0} , 
-                { name: "             بادمجان کباب: ۱۲۵ گرم کوبیده + بادمجان + نان داغ + مخلفات  ۱۳۵   " , value : 0 } ,
-                { name: "             رولت قفقازی : ۲۰۰  گرم میکس فیله/راسته گوساله + مرغ چرخ‌کرده + نان داغ + مخلفات  ۱۷۹  ", value : 0}
+                { name: " کوبیده : یک سیخ ۸۵", value: 0 },
+                { name: "    کوبیده : دو سیخ ۱۹۰", value: 0 },
+                { name: " آداناکباب ۱۱۵  ", value: 0},
+                { name: "       گوشت ۸۹      ", value: 0} ,
+                { name: "             گوشت و دنبه ۱۰۷"   , value :0 }  ,
+                { name: "            جگر ۸۰" , value :0 } ,
+                { name: "         دل ۸۰   " , value : 0} ,
+                { name: "        رولت گوشت ۱۷۹    " ,value : 0} , 
+                { name: "             بادمجان کباب ۱۳۵   " , value : 0 } ,
+                { name: "             رولت قفقازی ۱۷۹  ", value : 0}
             ];
         //initialize the button
         const mainButton = window.Telegram.WebApp.MainButton;
@@ -37,8 +37,8 @@
   </head>
   <body ng-controller="CustomUIController">
     <div ng-repeat="food in foods">
-      <div style="width: 350px; font-size : 15px ; font-weight: bold;display: inline-block">{{food.name}} : {{food.value}}</div>
-      <input style="display: inline-block ; width : 500px"; type="range" min="0" max="40"  ng-model="food.value" value="{{food.value}}">
+      <div style="width: 350px; font-size : 15px ; font-weight: bold; color : white ; display: inline-block">{{food.name}} : {{food.value}}</div>
+      <input style="display: inline-block ; width : 500px"; type="range" min="0" max="10"  ng-model="food.value" value="{{food.value}}">
     </div>
   </body>
 </html>
