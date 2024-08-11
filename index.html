@@ -1,0 +1,44 @@
+
+
+<html ng-app="custom-webapp-ui" lang="fa" style="background-color: Aqua">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Load the Telegram Library -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!--Load the AngularJS Library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+      //initialize the AngularJS stuff...
+      angular.module("custom-webapp-ui", []).controller('CustomUIController', function CustomUIController($scope) {
+        //init our slider values that we will display
+        $scope.foods = [
+                { name: " کوبیده : یک سیخ + نان داغ ، بدون مخلفات ۸۵", value: 0 },
+                { name: "    کوبیده : دو سیخ + نان داغ + مخلفات ۱۹۰", value: 0 },
+                { name: " آداناکباب : یک سیخ کوبیده + نان داغ + مخلفات ۱۱۵  ", value: 0},
+                { name: "       گوشت : ۱۰۰ گرم فیله/راسته گوساله+ نان داغ+ مخلفات ۸۹      ", value: 0} ,
+                { name: "             گوشت و دنبه : ۱۰۰ گرم فیله/راسته گوساله+ دنبه + نان داغ+ مخلفات ۱۰۷"   , value :0 }  ,
+                { name: "            جگر : ۱۰۰ گرم جگر + نان داغ  ۸۰" , value :0 } ,
+                { name: "         دل : ۱۰۰ گرم دل + نان داغ  ۸۰   " , value : 0} ,
+                { name: "        رولت گوشت : ۲۰۰  گرم میکس فیله/راسته گوساله + دنبه + نان داغ + مخلفات  ۱۷۹    " ,value : 0} , 
+                { name: "             بادمجان کباب: ۱۲۵ گرم کوبیده + بادمجان + نان داغ + مخلفات  ۱۳۵   " , value : 0 } ,
+                { name: "             رولت قفقازی : ۲۰۰  گرم میکس فیله/راسته گوساله + مرغ چرخ‌کرده + نان داغ + مخلفات  ۱۷۹  ", value : 0}
+            ];
+        //initialize the button
+        const mainButton = window.Telegram.WebApp.MainButton;
+        mainButton.text = "ثبت";
+        mainButton.enable();
+        mainButton.show();
+        // and make it send the "foods" object (as JSON string) back to the bot
+        mainButton.onClick(function(){
+          window.Telegram.WebApp.sendData(JSON.stringify($scope.foods));
+        })
+      });
+    </script>
+  </head>
+  <body ng-controller="CustomUIController">
+    <div ng-repeat="food in foods">
+      <div style="width: 350px; font-size : 15px ; font-weight: bold;display: inline-block">{{food.name}} : {{food.value}}</div>
+      <input style="display: inline-block ; width : 500px"; type="range" min="0" max="40"  ng-model="food.value" value="{{food.value}}">
+    </div>
+  </body>
+</html>
